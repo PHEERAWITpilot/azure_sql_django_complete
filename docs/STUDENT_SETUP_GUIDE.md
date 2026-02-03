@@ -103,3 +103,18 @@ python manage.py runserver
 ```
 
 Open your browser to `http://127.0.0.1:8000/`. You should see the API root or a 404 page (depending on configuration), but the server should be running without errors.
+
+---
+
+## 3. Frontend Setup
+
+To run the full application, you will also need the frontend.
+
+### A. Clone the Frontend Repository
+
+Open a **new** terminal window (keep the backend running) and run:
+
+```bash
+git clone https://github.com/raksit/azure_sql_django_frontend.git
+cd azure_sql_django_frontend
+```

@@ -15,4 +15,5 @@ urlpatterns = [
     path('orders/<int:pk>/', views.OrderDetail.as_view(), name='order-detail'),
     path('reviews/', views.ReviewList.as_view(), name='review-list'),
     path('reviews/<str:pk>/', views.ReviewDetail.as_view(), name='review-detail'),
+    path('connect-db/', views.check_db_connection, name='check-db'),
 ]
