@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+media/
+staticfiles/
+
+# VirtualEnv
+venv/
+env/
+ENV/
+.venv/
+
+# macOS
+.DS_Store
+
+# MongoDB
+mongodata/
+
+# Archives
+*.tgz
+*.zip
+
+# Scripts
+start_mongo.sh
+connect_mongo.sh
