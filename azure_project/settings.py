@@ -90,10 +90,10 @@ WSGI_APPLICATION = 'azure_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': 'free-sql-db-6833223',
-        'USER': 'phat-admin',
+        'NAME': 'phatcharida-db',
+        'USER': 'phatcharida-admin',
         'PASSWORD': 'Qcallis7!pc',
-        'HOST': 'phat-admin.database.windows.net',
+        'HOST': 'phatcharida-admin.database.windows.net',
         'PORT': '1433',
         'OPTIONS': {
             'driver': 'ODBC Driver 18 for SQL Server',
