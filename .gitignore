@@ -29,3 +29,8 @@ mongodata/
 # Scripts
 start_mongo.sh
 connect_mongo.sh
+
+# Environment variables
+.env
+.env.*
+!.env.example

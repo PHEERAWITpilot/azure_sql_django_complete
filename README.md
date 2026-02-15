@@ -10,6 +10,21 @@ For detailed installation, prerequisites, and database configuration, please ref
 - [Azure Database Setup (SQL & Cosmos DB)](docs/DB_SETUP_AZURE.md)
 - [Deployment Guide (App Service & Containers)](docs/DEPLOYMENT.md)
 
+### Local `.env` setup (recommended)
+
+To avoid setting `MONGO_URI` manually every terminal session:
+
+1. Install dependencies:
+	```bash
+	pip install -r requirements.txt
+	```
+2. Copy `.env.example` to `.env`.
+3. Edit `.env` once with your values:
+	- `MONGO_URI`
+	- `MONGO_DB_NAME`
+
+Django will load these automatically via `python-decouple`.
+
 ## API Endpoints
 
 ### Stores

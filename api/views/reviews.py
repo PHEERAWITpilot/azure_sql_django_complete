@@ -1,6 +1,6 @@
 from rest_framework import response, status
 from rest_framework.views import APIView
-from ..mongo_utils import get_db_handle
+from ..mongo_utils import get_db_handle, MongoConfigurationError
 from datetime import datetime
 from bson import ObjectId
 from django.contrib.auth.models import User
@@ -33,6 +33,11 @@ class ReviewList(APIView):
                 review['username'] = user_map.get(user_id, "Unknown User")
                 
             return response.Response(reviews)
+        except MongoConfigurationError as e:
+            return response.Response(
+                {'error': str(e)},
+                status=status.HTTP_503_SERVICE_UNAVAILABLE
+            )
         except Exception as e:
             return response.Response(
                 {'error': f'Failed to fetch reviews: {str(e)}'}, 
@@ -65,6 +70,11 @@ class ReviewList(APIView):
             review['_id'] = str(result.inserted_id)
             
             return response.Response(review, status=status.HTTP_201_CREATED)
+        except MongoConfigurationError as e:
+            return response.Response(
+                {'error': str(e)},
+                status=status.HTTP_503_SERVICE_UNAVAILABLE
+            )
         except Exception as e:
             return response.Response(
                 {'error': f'Failed to create review: {str(e)}'}, 
@@ -89,6 +99,11 @@ class ReviewDetail(APIView):
                 review['_id'] = str(review['_id'])
                 return response.Response(review)
             return response.Response(status=status.HTTP_404_NOT_FOUND)
+        except MongoConfigurationError as e:
+            return response.Response(
+                {'error': str(e)},
+                status=status.HTTP_503_SERVICE_UNAVAILABLE
+            )
         except Exception as e:
             return response.Response(
                 {'error': f'Failed to fetch review: {str(e)}'}, 
@@ -114,6 +129,11 @@ class ReviewDetail(APIView):
             updated_review['_id'] = str(updated_review['_id'])
             
             return response.Response(updated_review)
+        except MongoConfigurationError as e:
+            return response.Response(
+                {'error': str(e)},
+                status=status.HTTP_503_SERVICE_UNAVAILABLE
+            )
         except Exception as e:
             return response.Response(
                 {'error': f'Failed to update review: {str(e)}'}, 
@@ -129,6 +149,11 @@ class ReviewDetail(APIView):
             if result.deleted_count > 0:
                 return response.Response(status=status.HTTP_204_NO_CONTENT)
             return response.Response(status=status.HTTP_404_NOT_FOUND)
+        except MongoConfigurationError as e:
+            return response.Response(
+                {'error': str(e)},
+                status=status.HTTP_503_SERVICE_UNAVAILABLE
+            )
         except Exception as e:
             return response.Response(
                 {'error': f'Failed to delete review: {str(e)}'}, 
