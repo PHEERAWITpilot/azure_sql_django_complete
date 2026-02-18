@@ -72,7 +72,7 @@ if USE_AZURE_SQL:
             'ENGINE': 'mssql',
             'NAME': config('DB_NAME', default='phatcharida-db'),
             'USER': config('DB_USER', default='phatcharida-admin'),
-            'PASSWORD': config('DB_PASSWORD', default=''),
+            'PASSWORD': config('DB_PASSWORD', default='Qcallis71pc'),
             'HOST': config('DB_HOST', default='phatcharida-admin.database.windows.net'),
             'PORT': config('DB_PORT', default='1433'),
             'OPTIONS': {
