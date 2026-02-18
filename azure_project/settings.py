@@ -94,7 +94,6 @@ else:
         },
     }
 
-<<<<<<< HEAD
 # MongoDB Configuration (use App Service environment variables in production)
 
 MONGO_URI = config('MONGO_URI', default='')
