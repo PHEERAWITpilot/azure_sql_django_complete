@@ -63,21 +63,21 @@ WSGI_APPLICATION = 'azure_project.wsgi.application'
 
 # Database Configuration - Uses environment variables in production
 # Check if running on Azure App Service
-USE_AZURE_SQL = config('USE_AZURE_SQL', default=False, cast=bool)
+USE_AZURE_SQL = config('USE_AZURE_SQL', default=True, cast=bool)
 
 if USE_AZURE_SQL:
     # Azure SQL Server Configuration
     DATABASES = {
         'default': {
             'ENGINE': 'mssql',
-            'NAME': config('DB_NAME', default='phatcharida-db'),
-            'USER': config('DB_USER', default='phatcharida-admin'),
-            'PASSWORD': config('DB_PASSWORD', default='Qcallis71pc'),
-            'HOST': config('DB_HOST', default='phatcharida-admin.database.windows.net'),
+            'NAME': config('DB_NAME', default='pheerawit'),
+            'USER': config('DB_USER', default='pheerawit'),
+            'PASSWORD': config('DB_PASSWORD', default='nopeZAA1012123234'),
+            'HOST': config('DB_HOST', default='pheerawit.database.windows.net'),
             'PORT': config('DB_PORT', default='1433'),
             'OPTIONS': {
                 'driver': 'ODBC Driver 18 for SQL Server',
-                'extra_params': 'Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;',
+                'extra_params': 'Encrypt=yes;TrustServerCertificate=yes;Connection Timeout=30;',
             },
         },
     }
